@@ -38958,7 +38958,7 @@ class Scatterplot {
     this.label_click_handler.f = func;
   }
   get label_click() {
-    return this.label_click_handler.f.bind(this.label_click_handler);
+    return this.label_click_handler.f;
   }
   set highlit_point_change(func) {
     this.handle_highlit_point_change.f = func;
@@ -39259,7 +39259,7 @@ class SettableFunction {
   }
 }
 class LabelClick extends SettableFunction {
-  default(feature, plot = void 0, labelset = void 0) {
+  default(feature, plot = void 0) {
     let filter2;
     if (feature === null) {
       return;
@@ -39270,8 +39270,8 @@ class LabelClick extends SettableFunction {
     } else {
       feature.__activated = true;
       filter2 = {
-        field: labelset.label_key,
-        lambda: `d => d === '${feature.properties[labelset.label_key]}'`
+        field: this.plot.prefs.labels.label_field,
+        lambda: `d => d === '${feature.properties[this.plot.prefs.labels.label_field]}'`
       };
     }
     void this.plot.plotAPI({
