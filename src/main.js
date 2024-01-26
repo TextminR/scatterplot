@@ -8,9 +8,7 @@ const prefs = {
   zoom_balance: 0.12,
   point_size: 5,
   background_color: '#172554',
-  click_function:
-    // "select('#ident').html(JSON.stringify(datum, undefined, 2))",
-    null,
+  click_function: null,
   encoding: {
     jitter_radius: {
       constant: 0.001,
@@ -38,4 +36,8 @@ const prefs = {
 };
 
 const scatterplot = new Scatterplot('#deepscatter');
+
+scatterplot.tooltip_html = (text) => {
+  return `<p class="text-black"><span class="font-bold">Title:</span> <i>${text.title}</i><br><span class="font-bold">Topic:</span> ${text.topic}</p>`;
+}
 scatterplot.plotAPI(prefs);
