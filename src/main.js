@@ -41,7 +41,11 @@ const prefs = {
 
 const scatterplot = new Scatterplot('#deepscatter');
 
-scatterplot.tooltip_html = (text) => {
-  return `<p class="text-black"><span class="font-bold">Title:</span> <i>${text.title}</i><br><span class="font-bold">Topic:</span> ${text.topic}</p>`;
-}
+const generateTooltipHTML = (text) => {
+  const filteredEntries = Object.entries(text).filter(([key]) => !['x', 'y', 'ix'].includes(key));
+  const html = filteredEntries.map(([key, value]) => `<span class="font-bold">${key}:</span> ${value}`).join('<br>');
+  return `<p class="text-black">${html}</p>`;
+};
+scatterplot.tooltip_html = generateTooltipHTML;
+
 scatterplot.plotAPI(prefs);
