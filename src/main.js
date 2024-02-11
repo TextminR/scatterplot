@@ -26,6 +26,10 @@ const prefs = {
       field: 'y',
       transform: 'literal',
     },
+    filter: {
+      field: 'topic',
+      lambda: 'x => x !== "Unclustered"'
+    },
   },
   labels: {
     url: import.meta.env.VITE_URL_DATA + '/topics.geojson',
