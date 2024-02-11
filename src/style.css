@@ -5,3 +5,7 @@
 .tooltip {
   width: 300px;
 }
+
+.tooltip span {
+  text-transform: capitalize;
+}
