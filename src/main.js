@@ -3,7 +3,7 @@ import Scatterplot from './deepscatter';
 
 const prefs = {
   source_url: import.meta.env.VITE_URL_TILES,
-  max_points: 10000,
+  max_points: 50000,
   alpha: 10.12,
   zoom_balance: 0.12,
   point_size: 5,
