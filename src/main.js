@@ -2,7 +2,7 @@ import './style.css';
 import Scatterplot from './deepscatter';
 
 const prefs = {
-  source_url: import.meta.env.VITE_URL_TILES,
+  source_url: import.meta.env.VITE_URL_DATA + '/tiles',
   max_points: 50000,
   alpha: 10.12,
   zoom_balance: 0.12,
@@ -28,7 +28,7 @@ const prefs = {
     },
   },
   labels: {
-    url: import.meta.env.VITE_URL_GEOJSON,
+    url: import.meta.env.VITE_URL_DATA + '/topics.geojson',
     name: undefined,
     label_field: 'topic',
     size_field: undefined,
